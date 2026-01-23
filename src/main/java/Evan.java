@@ -52,7 +52,7 @@ public class Evan {
                     if (idx >= 0 && idx < taskCount) {
                         tasks[idx].markUndone();
                         System.out.println(lineSeparator);
-                        System.out.println(" Going back on your word? Okay, I've unmarked this task:");
+                        System.out.println(" OK, I've marked this task as not done yet:");
                         System.out.println("   " + tasks[idx]);
                         System.out.println(lineSeparator);
                     } else {
@@ -65,9 +65,54 @@ public class Evan {
                     System.out.println(" Please provide a valid task number.");
                     System.out.println(lineSeparator);
                 }
+            } else if (input.startsWith("todo ")) {
+                String description = input.substring(5).trim();
+                if (taskCount < 100) {
+                    tasks[taskCount] = new ToDo(description);
+                    taskCount++;
+                    System.out.println(lineSeparator);
+                    System.out.println(" Got it. I've added this task:");
+                    System.out.println("   " + tasks[taskCount - 1]);
+                    System.out.println(" Now you have " + taskCount + " tasks in the list.");
+                    System.out.println(lineSeparator);
+                }
+            } else if (input.startsWith("deadline ")) {
+                String remaining = input.substring(9);
+                int byIndex = remaining.indexOf("/by ");
+                if (byIndex != -1) {
+                    String description = remaining.substring(0, byIndex).trim();
+                    String by = remaining.substring(byIndex + 4).trim();
+                    if (taskCount < 100) {
+                        tasks[taskCount] = new Deadline(description, by);
+                        taskCount++;
+                        System.out.println(lineSeparator);
+                        System.out.println(" Got it. I've added this task:");
+                        System.out.println("   " + tasks[taskCount - 1]);
+                        System.out.println(" Now you have " + taskCount + " tasks in the list.");
+                        System.out.println(lineSeparator);
+                    }
+                }
+            } else if (input.startsWith("event ")) {
+                String remaining = input.substring(6);
+                int fromIndex = remaining.indexOf("/from ");
+                int toIndex = remaining.indexOf("/to ");
+                if (fromIndex != -1 && toIndex != -1) {
+                    String description = remaining.substring(0, fromIndex).trim();
+                    String from = remaining.substring(fromIndex + 6, toIndex).trim();
+                    String to = remaining.substring(toIndex + 4).trim();
+                    if (taskCount < 100) {
+                        tasks[taskCount] = new Event(description, from, to);
+                        taskCount++;
+                        System.out.println(lineSeparator);
+                        System.out.println(" Got it. I've added this task:");
+                        System.out.println("   " + tasks[taskCount - 1]);
+                        System.out.println(" Now you have " + taskCount + " tasks in the list.");
+                        System.out.println(lineSeparator);
+                    }
+                }
             } else {
                 if (taskCount < 100) {
-                    tasks[taskCount] = new Task(input);
+                    tasks[taskCount] = new ToDo(input);
                     taskCount++;
                 }
                 System.out.println(lineSeparator);
