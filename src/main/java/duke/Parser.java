@@ -131,6 +131,8 @@ public class Parser {
                 throw new DukeException("The deadline time cannot be empty.");
             }
             return new AddCommand(new Deadline(description, by));
+        } catch (DukeException e) {
+            throw e;
         } catch (StringIndexOutOfBoundsException e) {
             throw new DukeException("Please provide a valid deadline format: deadline <description> /by <time>");
         } catch (Exception e) {
@@ -163,6 +165,8 @@ public class Parser {
                 throw new DukeException("The event start and end times cannot be empty.");
             }
             return new AddCommand(new Event(description, from, to));
+        } catch (DukeException e) {
+            throw e;
         } catch (StringIndexOutOfBoundsException e) {
             throw new DukeException("Please provide a valid event format: event <description> /from <start> /to <end>");
         } catch (Exception e) {
