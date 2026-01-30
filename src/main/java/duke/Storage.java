@@ -20,8 +20,8 @@ public class Storage {
 
     /**
      * Constructs a Storage object with the specified file path.
-     * 
-     * @param filePath The path to the file where tasks are stored
+     *
+     * @param filePath The path to the file for storing tasks
      */
     public Storage(String filePath) {
         this.filePath = filePath;

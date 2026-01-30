@@ -13,8 +13,8 @@ public class Event extends Task {
     private static final DateTimeFormatter OUTPUT_FORMATTER = DateTimeFormatter.ofPattern("MMM dd yyyy h:mma");
 
     /**
-     * Constructs an Event task with the specified description and time period.
-     * 
+     * Constructs an Event task with the specified description, start time, and end time.
+     *
      * @param description The description of the event
      * @param from The start time in string format (yyyy-MM-dd HHmm)
      * @param to The end time in string format (yyyy-MM-dd HHmm)
@@ -26,11 +26,11 @@ public class Event extends Task {
     }
 
     /**
-     * Constructs an Event task with the specified description and time period.
-     * 
+     * Constructs an Event task with the specified description, start time, and end time.
+     *
      * @param description The description of the event
-     * @param from The start time as a LocalDateTime
-     * @param to The end time as a LocalDateTime
+     * @param from The start time as a LocalDateTime object
+     * @param to The end time as a LocalDateTime object
      */
     public Event(String description, LocalDateTime from, LocalDateTime to) {
         super(description);
@@ -40,8 +40,8 @@ public class Event extends Task {
 
     /**
      * Gets the start time of the event.
-     * 
-     * @return The start time as a LocalDateTime
+     *
+     * @return The start time as a LocalDateTime object
      */
     public LocalDateTime getFrom() {
         return from;
@@ -49,8 +49,8 @@ public class Event extends Task {
 
     /**
      * Gets the end time of the event.
-     * 
-     * @return The end time as a LocalDateTime
+     *
+     * @return The end time as a LocalDateTime object
      */
     public LocalDateTime getTo() {
         return to;
@@ -58,8 +58,8 @@ public class Event extends Task {
 
     /**
      * Gets the start time as a formatted string.
-     * 
-     * @return The start time in a human-readable format
+     *
+     * @return The formatted start time string
      */
     public String getFromString() {
         return from.format(OUTPUT_FORMATTER);
@@ -67,8 +67,8 @@ public class Event extends Task {
 
     /**
      * Gets the end time as a formatted string.
-     * 
-     * @return The end time in a human-readable format
+     *
+     * @return The formatted end time string
      */
     public String getToString() {
         return to.format(OUTPUT_FORMATTER);

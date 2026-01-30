@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Represents a task with a deadline.
+ * Represents a deadline task with a specific date and time.
  */
 public class Deadline extends Task {
     protected LocalDateTime by;
@@ -12,8 +12,8 @@ public class Deadline extends Task {
     private static final DateTimeFormatter OUTPUT_FORMATTER = DateTimeFormatter.ofPattern("MMM dd yyyy h:mma");
 
     /**
-     * Constructs a Deadline task with the specified description and deadline string.
-     * 
+     * Constructs a Deadline task with the specified description and deadline.
+     *
      * @param description The description of the deadline task
      * @param by The deadline in string format (yyyy-MM-dd HHmm)
      */
@@ -24,9 +24,9 @@ public class Deadline extends Task {
 
     /**
      * Constructs a Deadline task with the specified description and deadline.
-     * 
+     *
      * @param description The description of the deadline task
-     * @param by The deadline as a LocalDateTime
+     * @param by The deadline as a LocalDateTime object
      */
     public Deadline(String description, LocalDateTime by) {
         super(description);
@@ -35,8 +35,8 @@ public class Deadline extends Task {
 
     /**
      * Gets the deadline date and time.
-     * 
-     * @return The deadline as a LocalDateTime
+     *
+     * @return The deadline as a LocalDateTime object
      */
     public LocalDateTime getBy() {
         return by;
@@ -44,8 +44,8 @@ public class Deadline extends Task {
 
     /**
      * Gets the deadline as a formatted string.
-     * 
-     * @return The deadline in a human-readable format
+     *
+     * @return The formatted deadline string
      */
     public String getByString() {
         return by.format(OUTPUT_FORMATTER);

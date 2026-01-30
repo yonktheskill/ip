@@ -1,7 +1,7 @@
 package duke.task;
 
 /**
- * Represents a generic task with a description and completion status.
+ * Represents a task with a description and completion status.
  */
 public class Task {
     protected String description;
@@ -9,7 +9,7 @@ public class Task {
 
     /**
      * Constructs a Task with the specified description.
-     * 
+     *
      * @param description The description of the task
      */
     public Task(String description) {
@@ -19,7 +19,7 @@ public class Task {
 
     /**
      * Gets the description of the task.
-     * 
+     *
      * @return The task description
      */
     public String getDescription() {
@@ -27,8 +27,8 @@ public class Task {
     }
 
     /**
-     * Checks if the task is marked as done.
-     * 
+     * Checks if the task is done.
+     *
      * @return True if the task is done, false otherwise
      */
     public boolean isDone() {
@@ -51,8 +51,8 @@ public class Task {
 
     /**
      * Gets the status icon representing whether the task is done.
-     * 
-     * @return "[X]" if done, "[ ]" if not done
+     *
+     * @return [X] if done, [ ] if not done
      */
     public String getStatusIcon() {
         return isDone ? "[X]" : "[ ]";
@@ -60,7 +60,7 @@ public class Task {
 
     /**
      * Gets the type icon for the task.
-     * 
+     *
      * @return The type icon string
      */
     public String getTypeIcon() {
@@ -69,8 +69,8 @@ public class Task {
 
     /**
      * Returns a string representation of the task.
-     * 
-     * @return String representation including type, status, and description
+     *
+     * @return The formatted task string
      */
     public String toString() {
         return getTypeIcon() + getStatusIcon() + " " + description;
