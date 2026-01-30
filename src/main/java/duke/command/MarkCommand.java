@@ -12,6 +12,11 @@ import duke.task.Task;
 public class MarkCommand extends Command {
     private int index;
 
+    /**
+     * Constructs a MarkCommand to mark the task at the specified index.
+     *
+     * @param index The index of the task to mark as done
+     */
     public MarkCommand(int index) {
         this.index = index;
     }

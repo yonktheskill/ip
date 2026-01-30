@@ -12,6 +12,11 @@ import duke.task.Task;
 public class DeleteCommand extends Command {
     private int index;
 
+    /**
+     * Constructs a DeleteCommand to delete the task at the specified index.
+     *
+     * @param index The index of the task to delete
+     */
     public DeleteCommand(int index) {
         this.index = index;
     }

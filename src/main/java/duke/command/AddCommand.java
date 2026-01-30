@@ -11,6 +11,11 @@ import duke.task.Task;
 public class AddCommand extends Command {
     private Task task;
 
+    /**
+     * Constructs an AddCommand to add the specified task.
+     *
+     * @param task The task to add
+     */
     public AddCommand(Task task) {
         this.task = task;
     }

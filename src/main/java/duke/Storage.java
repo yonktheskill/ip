@@ -12,9 +12,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Handles the loading and saving of tasks to a file.
+ */
 public class Storage {
     private String filePath;
 
+    /**
+     * Constructs a Storage object with the specified file path.
+     *
+     * @param filePath The path to the file for storing tasks
+     */
     public Storage(String filePath) {
         this.filePath = filePath;
     }
