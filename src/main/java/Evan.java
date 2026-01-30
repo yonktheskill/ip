@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Evan {
+    private static final String FILE_PATH = "./data/duke.txt";
+
     public static void main(String[] args) {
         String lineSeparator = "____________________________________________________________";
         System.out.println(lineSeparator);
@@ -11,7 +13,8 @@ public class Evan {
         System.out.println(lineSeparator);
 
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Task> tasks = new ArrayList<>();
+        Storage storage = new Storage(FILE_PATH);
+        ArrayList<Task> tasks = storage.load();
 
         while (true) {
             String input = scanner.nextLine();
@@ -32,6 +35,7 @@ public class Evan {
                     int idx = Integer.parseInt(input.substring(5).trim()) - 1;
                     if (idx >= 0 && idx < tasks.size()) {
                         tasks.get(idx).markDone();
+                        storage.save(tasks);
                         System.out.println(lineSeparator);
                         System.out.println(" Nice! I've marked this task as done:");
                         System.out.println("   " + tasks.get(idx));
@@ -51,6 +55,7 @@ public class Evan {
                     int idx = Integer.parseInt(input.substring(7).trim()) - 1;
                     if (idx >= 0 && idx < tasks.size()) {
                         tasks.get(idx).markUndone();
+                        storage.save(tasks);
                         System.out.println(lineSeparator);
                         System.out.println(" OK, I've marked this task as not done yet:");
                         System.out.println("   " + tasks.get(idx));
@@ -68,6 +73,7 @@ public class Evan {
             } else if (input.startsWith("todo ")) {
                 String description = input.substring(5).trim();
                 Task newTask = new ToDo(description);
+                storage.save(tasks);
                 tasks.add(newTask);
                 System.out.println(lineSeparator);
                 System.out.println(" Got it. I've added this task:");
@@ -81,6 +87,7 @@ public class Evan {
                     String description = remaining.substring(0, byIndex).trim();
                     String by = remaining.substring(byIndex + 4).trim();
                     Task newTask = new Deadline(description, by);
+                    storage.save(tasks);
                     tasks.add(newTask);
                     System.out.println(lineSeparator);
                     System.out.println(" Got it. I've added this task:");
@@ -97,6 +104,7 @@ public class Evan {
                     String from = remaining.substring(fromIndex + 6, toIndex).trim();
                     String to = remaining.substring(toIndex + 4).trim();
                     Task newTask = new Event(description, from, to);
+                    storage.save(tasks);
                     tasks.add(newTask);
                     System.out.println(lineSeparator);
                     System.out.println(" Got it. I've added this task:");
@@ -109,6 +117,7 @@ public class Evan {
                     int idx = Integer.parseInt(input.substring(7).trim()) - 1;
                     if (idx >= 0 && idx < tasks.size()) {
                         Task removedTask = tasks.remove(idx);
+                        storage.save(tasks);
                         System.out.println(lineSeparator);
                         System.out.println(" Noted. I've removed this task:");
                         System.out.println("   " + removedTask);
@@ -125,6 +134,7 @@ public class Evan {
                     System.out.println(lineSeparator);
                 }
             } else {
+                storage.save(tasks);
                 Task newTask = new ToDo(input);
                 tasks.add(newTask);
                 System.out.println(lineSeparator);
