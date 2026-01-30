@@ -1,3 +1,9 @@
+package duke;
+
+import duke.command.*;
+import duke.exception.DukeException;
+import duke.task.*;
+
 /**
  * Deals with making sense of the user command.
  */
