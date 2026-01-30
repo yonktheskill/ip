@@ -81,35 +81,47 @@ public class Evan {
                 System.out.println(" Now you have " + tasks.size() + " tasks in the list.");
                 System.out.println(lineSeparator);
             } else if (input.startsWith("deadline ")) {
-                String remaining = input.substring(9);
-                int byIndex = remaining.indexOf("/by ");
-                if (byIndex != -1) {
-                    String description = remaining.substring(0, byIndex).trim();
-                    String by = remaining.substring(byIndex + 4).trim();
-                    Task newTask = new Deadline(description, by);
-                    storage.save(tasks);
-                    tasks.add(newTask);
+                try {
+                    String remaining = input.substring(9);
+                    int byIndex = remaining.indexOf("/by ");
+                    if (byIndex != -1) {
+                        String description = remaining.substring(0, byIndex).trim();
+                        String by = remaining.substring(byIndex + 4).trim();
+                        Task newTask = new Deadline(description, by);
+                        tasks.add(newTask);
+                        storage.save(tasks);
+                        System.out.println(lineSeparator);
+                        System.out.println(" Got it. I've added this task:");
+                        System.out.println("   " + newTask);
+                        System.out.println(" Now you have " + tasks.size() + " tasks in the list.");
+                        System.out.println(lineSeparator);
+                    }
+                } catch (Exception e) {
                     System.out.println(lineSeparator);
-                    System.out.println(" Got it. I've added this task:");
-                    System.out.println("   " + newTask);
-                    System.out.println(" Now you have " + tasks.size() + " tasks in the list.");
+                    System.out.println(" Invalid date format. Please use: yyyy-MM-dd HHmm (e.g., 2019-12-02 1800)");
                     System.out.println(lineSeparator);
                 }
             } else if (input.startsWith("event ")) {
-                String remaining = input.substring(6);
-                int fromIndex = remaining.indexOf("/from ");
-                int toIndex = remaining.indexOf("/to ");
-                if (fromIndex != -1 && toIndex != -1) {
-                    String description = remaining.substring(0, fromIndex).trim();
-                    String from = remaining.substring(fromIndex + 6, toIndex).trim();
-                    String to = remaining.substring(toIndex + 4).trim();
-                    Task newTask = new Event(description, from, to);
-                    storage.save(tasks);
-                    tasks.add(newTask);
+                try {
+                    String remaining = input.substring(6);
+                    int fromIndex = remaining.indexOf("/from ");
+                    int toIndex = remaining.indexOf("/to ");
+                    if (fromIndex != -1 && toIndex != -1) {
+                        String description = remaining.substring(0, fromIndex).trim();
+                        String from = remaining.substring(fromIndex + 6, toIndex).trim();
+                        String to = remaining.substring(toIndex + 4).trim();
+                        Task newTask = new Event(description, from, to);
+                        tasks.add(newTask);
+                        storage.save(tasks);
+                        System.out.println(lineSeparator);
+                        System.out.println(" Got it. I've added this task:");
+                        System.out.println("   " + newTask);
+                        System.out.println(" Now you have " + tasks.size() + " tasks in the list.");
+                        System.out.println(lineSeparator);
+                    }
+                } catch (Exception e) {
                     System.out.println(lineSeparator);
-                    System.out.println(" Got it. I've added this task:");
-                    System.out.println("   " + newTask);
-                    System.out.println(" Now you have " + tasks.size() + " tasks in the list.");
+                    System.out.println(" Invalid date format. Please use: yyyy-MM-dd HHmm (e.g., 2019-12-02 1800)");
                     System.out.println(lineSeparator);
                 }
             } else if (input.startsWith("delete ")) {

@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,6 +66,7 @@ public class Storage {
         String description = parts[2];
 
         Task task = null;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
 
         switch (type) {
             case "T":
@@ -71,12 +74,15 @@ public class Storage {
                 break;
             case "D":
                 if (parts.length >= 4) {
-                    task = new Deadline(description, parts[3]);
+                    LocalDateTime by = LocalDateTime.parse(parts[3], formatter);
+                    task = new Deadline(description, by);
                 }
                 break;
             case "E":
                 if (parts.length >= 5) {
-                    task = new Event(description, parts[3], parts[4]);
+                    LocalDateTime from = LocalDateTime.parse(parts[3], formatter);
+                    LocalDateTime to = LocalDateTime.parse(parts[4], formatter);
+                    task = new Event(description, from, to);
                 }
                 break;
             default:
@@ -129,6 +135,7 @@ public class Storage {
         String type;
         String status = task.isDone() ? "1" : "0";
         StringBuilder sb = new StringBuilder();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
 
         if (task instanceof ToDo) {
             type = "T";
@@ -137,13 +144,13 @@ public class Storage {
             type = "D";
             Deadline deadline = (Deadline) task;
             sb.append(type).append(" | ").append(status).append(" | ")
-                    .append(task.getDescription()).append(" | ").append(deadline.getBy());
+                    .append(task.getDescription()).append(" | ").append(deadline.getBy().format(formatter));
         } else if (task instanceof Event) {
             type = "E";
             Event event = (Event) task;
             sb.append(type).append(" | ").append(status).append(" | ")
-                    .append(task.getDescription()).append(" | ").append(event.getFrom())
-                    .append(" | ").append(event.getTo());
+                    .append(task.getDescription()).append(" | ").append(event.getFrom().format(formatter))
+                    .append(" | ").append(event.getTo().format(formatter));
         }
 
         return sb.toString();
