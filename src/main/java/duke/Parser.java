@@ -36,6 +36,8 @@ public class Parser {
                 return parseDeadlineCommand(fullCommand);
             case "event":
                 return parseEventCommand(fullCommand);
+            case "find":
+                return parseFindCommand(fullCommand);
             default:
                 // If no valid command is recognized, treat it as a todo
                 return new AddCommand(new ToDo(fullCommand));
@@ -172,5 +174,23 @@ public class Parser {
         } catch (Exception e) {
             throw new DukeException("Invalid date format. Please use: yyyy-MM-dd HHmm (e.g., 2019-12-02 1800)");
         }
+    }
+
+    /**
+     * Parses a find command.
+     * 
+     * @param fullCommand The full command string
+     * @return A FindCommand with the search keyword
+     * @throws DukeException If the command format is invalid
+     */
+    private static Command parseFindCommand(String fullCommand) throws DukeException {
+        if (fullCommand.length() <= 5) {
+            throw new DukeException("Please provide a keyword to search for.");
+        }
+        String keyword = fullCommand.substring(5).trim();
+        if (keyword.isEmpty()) {
+            throw new DukeException("Please provide a keyword to search for.");
+        }
+        return new FindCommand(keyword);
     }
 }

@@ -120,6 +120,22 @@ public class Ui {
     }
 
     /**
+     * Displays the matching tasks found by the find command.
+     * 
+     * @param matchingTasks The list of tasks that match the search
+     */
+    public void showFoundTasks(java.util.ArrayList<Task> matchingTasks) {
+        if (matchingTasks.isEmpty()) {
+            System.out.println(" No matching tasks found in your list.");
+        } else {
+            System.out.println(" Here are the matching tasks in your list:");
+            for (int i = 0; i < matchingTasks.size(); i++) {
+                System.out.println(" " + (i + 1) + "." + matchingTasks.get(i));
+            }
+        }
+    }
+
+    /**
      * Closes the scanner.
      */
     public void close() {
