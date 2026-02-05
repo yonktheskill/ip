@@ -31,11 +31,12 @@ public class AddCommand extends Command {
      * @param tasks The task list
      * @param ui The user interface
      * @param storage The storage handler
+     * @return The response message
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public String execute(TaskList tasks, Ui ui, Storage storage) {
         tasks.add(task);
         storage.save(tasks.getTasks());
-        ui.showTaskAdded(task, tasks.size());
+        return "Got it. I've added this task:\n  " + task + "\nNow you have " + tasks.size() + " tasks in the list.";
     }
 }

@@ -1,0 +1,108 @@
+/* Main Application Styles */
+.root {
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 14px;
+}
+
+/* ScrollPane Styling */
+.scroll-pane {
+    -fx-background-color: #f5f5f5;
+    -fx-background: #f5f5f5;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: #f5f5f5;
+}
+
+.scroll-pane .corner {
+    -fx-background-color: #f5f5f5;
+}
+
+/* VBox Container for Dialog Boxes */
+#dialogContainer {
+    -fx-background-color: #f5f5f5;
+}
+
+/* Dialog Box Base Styles */
+.dialog-box {
+    -fx-padding: 10;
+    -fx-background-radius: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 5, 0, 0, 2);
+}
+
+/* Dialog Text Styling */
+.dialog-text {
+    -fx-padding: 12 16 12 16;
+    -fx-background-radius: 18;
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 4, 0, 0, 1);
+    -fx-min-height: 40px;
+    -fx-max-width: 280px;
+    -fx-alignment: center-left;
+    -fx-text-fill: #333333;
+    -fx-line-spacing: 2px;
+}
+
+/* User Dialog Specific Styles */
+.user-dialog .dialog-text {
+    -fx-background-color: linear-gradient(to bottom right, #667eea, #764ba2);
+    -fx-text-fill: white;
+}
+
+/* Evan Dialog Specific Styles */
+.evan-dialog .dialog-text {
+    -fx-background-color: white;
+    -fx-text-fill: #333333;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 18;
+}
+
+/* Input Field Styling */
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 10 15 10 15;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+    -fx-prompt-text-fill: #999999;
+}
+
+.text-field:focused {
+    -fx-border-color: #667eea;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.3), 8, 0, 0, 0);
+}
+
+/* Send Button Styling */
+.button {
+    -fx-background-color: linear-gradient(to bottom right, #667eea, #764ba2);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.3), 5, 0, 0, 2);
+    -fx-padding: 10 20 10 20;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom right, #5568d3, #6a3f8f);
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.5), 8, 0, 0, 3);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+.button:pressed {
+    -fx-background-color: linear-gradient(to bottom right, #4a59c0, #5b3680);
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.4), 3, 0, 0, 1);
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+/* HBox Input Area Styling */
+.anchor-pane {
+    -fx-background-color: white;
+}

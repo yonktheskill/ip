@@ -14,10 +14,11 @@ public class ExitCommand extends Command {
      * @param tasks The task list
      * @param ui The user interface
      * @param storage The storage handler
+     * @return The response message
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
-        ui.showGoodbye();
+    public String execute(TaskList tasks, Ui ui, Storage storage) {
+        return "Don't leave me ):";
     }
 
     @Override

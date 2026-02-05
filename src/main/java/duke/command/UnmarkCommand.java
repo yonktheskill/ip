@@ -27,12 +27,13 @@ public class UnmarkCommand extends Command {
      * @param tasks The task list
      * @param ui The user interface
      * @param storage The storage handler
+     * @return The response message
      * @throws DukeException If the task index is invalid
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws DukeException {
+    public String execute(TaskList tasks, Ui ui, Storage storage) throws DukeException {
         Task task = tasks.unmark(index);
         storage.save(tasks.getTasks());
-        ui.showTaskUnmarked(task);
+        return "OK, I've marked this task as not done yet:\n  " + task;
     }
 }

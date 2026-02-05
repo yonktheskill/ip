@@ -30,6 +30,22 @@ public class Evan {
     }
 
     /**
+     * Gets a response from Evan for the given user input.
+     * This method is used by the GUI to process commands.
+     * 
+     * @param input The user's input command
+     * @return Evan's response as a String
+     */
+    public String getResponse(String input) {
+        try {
+            Command command = Parser.parse(input);
+            return command.execute(tasks, ui, storage);
+        } catch (DukeException e) {
+            return e.getMessage();
+        }
+    }
+
+    /**
      * Runs the main logic of the chatbot.
      */
     public void run() {

@@ -27,12 +27,13 @@ public class DeleteCommand extends Command {
      * @param tasks The task list
      * @param ui The user interface
      * @param storage The storage handler
+     * @return The response message
      * @throws DukeException If the task index is invalid
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws DukeException {
+    public String execute(TaskList tasks, Ui ui, Storage storage) throws DukeException {
         Task task = tasks.delete(index);
         storage.save(tasks.getTasks());
-        ui.showTaskDeleted(task, tasks.size());
+        return "Noted. I've removed this task:\n  " + task + "\nNow you have " + tasks.size() + " tasks in the list.";
     }
 }

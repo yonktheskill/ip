@@ -27,12 +27,13 @@ public class MarkCommand extends Command {
      * @param tasks The task list
      * @param ui The user interface
      * @param storage The storage handler
+     * @return The response message
      * @throws DukeException If the task index is invalid
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws DukeException {
+    public String execute(TaskList tasks, Ui ui, Storage storage) throws DukeException {
         Task task = tasks.mark(index);
         storage.save(tasks.getTasks());
-        ui.showTaskMarked(task);
+        return "Nice! I've marked this task as done:\n  " + task;
     }
 }
