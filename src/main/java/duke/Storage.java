@@ -32,6 +32,7 @@ public class Storage {
      * @param filePath The path to the file for storing tasks
      */
     public Storage(String filePath) {
+        assert filePath != null && !filePath.isEmpty() : "File path should not be null or empty";
         this.filePath = filePath;
     }
 
@@ -44,8 +45,8 @@ public class Storage {
     public ArrayList<Task> load() {
         ArrayList<Task> tasks = new ArrayList<>();
         Path path = Paths.get(filePath);
+        assert path != null : "Path should not be null";
         
-        // Check if file exists
         if (!Files.exists(path)) {
             return tasks;
         }
@@ -75,6 +76,7 @@ public class Storage {
      * @return The parsed Task object, or null if the line is invalid
      */
     private Task parseTask(String line) {
+        assert line != null : "Line to parse should not be null";
         String[] parts = line.split(" \\| ");
         if (parts.length < 3) {
             return null;
@@ -83,6 +85,7 @@ public class Storage {
         String type = parts[0];
         boolean isDone = parts[1].equals("1");
         String description = parts[2];
+        assert description != null : "Description should not be null";
 
         Task task = null;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
@@ -122,6 +125,7 @@ public class Storage {
      * @param tasks The list of tasks to save
      */
     public void save(ArrayList<Task> tasks) {
+        assert tasks != null : "Tasks list should not be null";
         try {
             // Create directory if it doesn't exist
             Path path = Paths.get(filePath);
@@ -151,6 +155,7 @@ public class Storage {
      * @return The formatted string
      */
     private String taskToFileFormat(Task task) {
+        assert task != null : "Task should not be null";
         String type;
         String status = task.isDone() ? "1" : "0";
         StringBuilder sb = new StringBuilder();

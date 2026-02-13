@@ -15,6 +15,7 @@ public class TaskList {
     }
 
     public TaskList(ArrayList<Task> tasks) {
+        assert tasks != null : "Tasks list should not be null";
         this.tasks = tasks;
     }
 
@@ -24,6 +25,7 @@ public class TaskList {
      * @param task The task to add
      */
     public void add(Task task) {
+        assert task != null : "Task to add should not be null";
         tasks.add(task);
     }
 
@@ -38,6 +40,7 @@ public class TaskList {
         if (index < 0 || index >= tasks.size()) {
             throw new DukeException("Invalid task number.");
         }
+        assert index >= 0 && index < tasks.size() : "Index should be valid at this point";
         return tasks.remove(index);
     }
 
@@ -52,6 +55,7 @@ public class TaskList {
         if (index < 0 || index >= tasks.size()) {
             throw new DukeException("Invalid task number.");
         }
+        assert index >= 0 && index < tasks.size() : "Index should be valid at this point";
         tasks.get(index).markDone();
         return tasks.get(index);
     }
@@ -67,6 +71,7 @@ public class TaskList {
         if (index < 0 || index >= tasks.size()) {
             throw new DukeException("Invalid task number.");
         }
+        assert index >= 0 && index < tasks.size() : "Index should be valid at this point";
         tasks.get(index).markUndone();
         return tasks.get(index);
     }
@@ -87,7 +92,9 @@ public class TaskList {
      * @return The number of tasks in the list
      */
     public int size() {
-        return tasks.size();
+        int size = tasks.size();
+        assert size >= 0 : "Task list size should be non-negative";
+        return size;
     }
 
     /**
@@ -96,6 +103,7 @@ public class TaskList {
      * @return The ArrayList of tasks
      */
     public ArrayList<Task> getTasks() {
+        assert tasks != null : "Tasks list should never be null";
         return tasks;
     }
 
@@ -106,6 +114,7 @@ public class TaskList {
      * @return An ArrayList of tasks that match the keyword
      */
     public ArrayList<Task> find(String keyword) {
+        assert keyword != null : "Keyword should not be null";
         ArrayList<Task> matchingTasks = new ArrayList<>();
         for (Task task : tasks) {
             if (task.getDescription().contains(keyword)) {

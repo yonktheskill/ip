@@ -16,8 +16,10 @@ public class Parser {
      * @throws DukeException If the command format is invalid
      */
     public static Command parse(String fullCommand) throws DukeException {
+        assert fullCommand != null : "Command string should not be null";
         String[] parts = fullCommand.trim().split(" ", 2);
         String command = parts[0].toLowerCase();
+        assert command != null : "Command should not be null after parsing";
 
         switch (command) {
             case "bye":
@@ -54,6 +56,7 @@ public class Parser {
     private static Command parseMarkCommand(String fullCommand) throws DukeException {
         try {
             int index = Integer.parseInt(fullCommand.substring(5).trim()) - 1;
+            assert index >= -1 : "Parsed index should be at least -1";
             return new MarkCommand(index);
         } catch (NumberFormatException | StringIndexOutOfBoundsException e) {
             throw new DukeException("Please provide a valid task number.");
@@ -70,6 +73,7 @@ public class Parser {
     private static Command parseUnmarkCommand(String fullCommand) throws DukeException {
         try {
             int index = Integer.parseInt(fullCommand.substring(7).trim()) - 1;
+            assert index >= -1 : "Parsed index should be at least -1";
             return new UnmarkCommand(index);
         } catch (NumberFormatException | StringIndexOutOfBoundsException e) {
             throw new DukeException("Please provide a valid task number.");
@@ -86,6 +90,7 @@ public class Parser {
     private static Command parseDeleteCommand(String fullCommand) throws DukeException {
         try {
             int index = Integer.parseInt(fullCommand.substring(7).trim()) - 1;
+            assert index >= -1 : "Parsed index should be at least -1";
             return new DeleteCommand(index);
         } catch (NumberFormatException | StringIndexOutOfBoundsException e) {
             throw new DukeException("Please provide a valid task number.");
@@ -107,6 +112,7 @@ public class Parser {
         if (description.isEmpty()) {
             throw new DukeException("The description of a todo cannot be empty.");
         }
+        assert !description.isEmpty() : "Description should not be empty at this point";
         return new AddCommand(new ToDo(description));
     }
 
@@ -132,6 +138,7 @@ public class Parser {
             if (by.isEmpty()) {
                 throw new DukeException("The deadline time cannot be empty.");
             }
+            assert !description.isEmpty() && !by.isEmpty() : "Description and deadline should not be empty";
             return new AddCommand(new Deadline(description, by));
         } catch (DukeException e) {
             throw e;
@@ -166,6 +173,7 @@ public class Parser {
             if (from.isEmpty() || to.isEmpty()) {
                 throw new DukeException("The event start and end times cannot be empty.");
             }
+            assert !description.isEmpty() && !from.isEmpty() && !to.isEmpty() : "Description, from, and to should not be empty";
             return new AddCommand(new Event(description, from, to));
         } catch (DukeException e) {
             throw e;
@@ -191,6 +199,7 @@ public class Parser {
         if (keyword.isEmpty()) {
             throw new DukeException("Please provide a keyword to search for.");
         }
+        assert !keyword.isEmpty() : "Keyword should not be empty at this point";
         return new FindCommand(keyword);
     }
 }

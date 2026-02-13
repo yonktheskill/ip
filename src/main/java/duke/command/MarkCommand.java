@@ -18,6 +18,7 @@ public class MarkCommand extends Command {
      * @param index The index of the task to mark as done
      */
     public MarkCommand(int index) {
+        assert index >= -1 : "Index should be at least -1";
         this.index = index;
     }
 
@@ -32,6 +33,7 @@ public class MarkCommand extends Command {
      */
     @Override
     public String execute(TaskList tasks, Ui ui, Storage storage) throws DukeException {
+        assert tasks != null && storage != null : "Tasks and storage should not be null";
         Task task = tasks.mark(index);
         storage.save(tasks.getTasks());
         return "Nice! I've marked this task as done:\n  " + task;
