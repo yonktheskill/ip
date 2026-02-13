@@ -19,6 +19,7 @@ public class Evan {
      * @param filePath The path to the file where tasks are stored
      */
     public Evan(String filePath) {
+        assert filePath != null && !filePath.isEmpty() : "File path should not be null or empty";
         ui = new Ui();
         storage = new Storage(filePath);
         try {
@@ -27,6 +28,7 @@ public class Evan {
             ui.showLoadingError();
             tasks = new TaskList();
         }
+        assert ui != null && storage != null && tasks != null : "Components should be initialized";
     }
 
     /**
@@ -37,6 +39,7 @@ public class Evan {
      * @return Evan's response as a String
      */
     public String getResponse(String input) {
+        assert input != null : "Input should not be null";
         try {
             Command command = Parser.parse(input);
             return command.execute(tasks, ui, storage);

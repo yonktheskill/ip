@@ -18,11 +18,13 @@ public class FindCommand extends Command {
      * @param keyword The keyword to search for
      */
     public FindCommand(String keyword) {
+        assert keyword != null && !keyword.isEmpty() : "Keyword should not be null or empty";
         this.keyword = keyword;
     }
 
     @Override
     public String execute(TaskList tasks, Ui ui, Storage storage) {
+        assert tasks != null : "Tasks should not be null";
         ArrayList<Task> matchingTasks = tasks.find(keyword);
         if (matchingTasks.isEmpty()) {
             return "No matching tasks found in your list.";
