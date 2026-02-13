@@ -4,19 +4,19 @@ import duke.exception.DukeException;
 import duke.task.Task;
 import java.util.ArrayList;
 
-/**
- * Contains the task list with operations to add/delete/mark tasks.
- */
 public class TaskList {
     private ArrayList<Task> tasks;
+    private TaskListHistory history;
 
     public TaskList() {
         this.tasks = new ArrayList<>();
+        this.history = new TaskListHistory();
     }
 
     public TaskList(ArrayList<Task> tasks) {
         assert tasks != null : "Tasks list should not be null";
         this.tasks = tasks;
+        this.history = new TaskListHistory();
     }
 
     /**
@@ -122,5 +122,16 @@ public class TaskList {
             }
         }
         return matchingTasks;
+    }
+
+    public void saveState() {
+        history.saveState(tasks);
+    }
+
+    public void undo() throws DukeException {
+        if (!history.canUndo()) {
+            throw new DukeException("Nothing to undo.");
+        }
+        this.tasks = history.undo();
     }
 }

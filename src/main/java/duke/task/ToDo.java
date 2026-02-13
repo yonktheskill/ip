@@ -22,4 +22,13 @@ public class ToDo extends Task {
     public String getTypeIcon() {
         return "[T]";
     }
+
+    @Override
+    public Task copy() {
+        ToDo copied = new ToDo(this.description);
+        if (this.isDone) {
+            copied.markDone();
+        }
+        return copied;
+    }
 }

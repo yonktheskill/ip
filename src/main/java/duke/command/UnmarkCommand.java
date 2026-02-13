@@ -38,4 +38,9 @@ public class UnmarkCommand extends Command {
         storage.save(tasks.getTasks());
         return "OK, I've marked this task as not done yet:\n  " + task;
     }
+
+    @Override
+    public boolean isUndoable() {
+        return true;
+    }
 }

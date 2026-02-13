@@ -20,12 +20,11 @@ public abstract class Command {
      */
     public abstract String execute(TaskList tasks, Ui ui, Storage storage) throws DukeException;
 
-    /**
-     * Checks if the command is an exit command.
-     * 
-     * @return True if this is an exit command, false otherwise
-     */
     public boolean isExit() {
+        return false;
+    }
+
+    public boolean isUndoable() {
         return false;
     }
 }

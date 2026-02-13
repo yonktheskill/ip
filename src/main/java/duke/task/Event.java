@@ -99,4 +99,13 @@ public class Event extends Task {
     public String toString() {
         return getTypeIcon() + getStatusIcon() + " " + description + " (from: " + getFromString() + " to: " + getToString() + ")";
     }
+
+    @Override
+    public Task copy() {
+        Event copied = new Event(this.description, this.from, this.to);
+        if (this.isDone) {
+            copied.markDone();
+        }
+        return copied;
+    }
 }

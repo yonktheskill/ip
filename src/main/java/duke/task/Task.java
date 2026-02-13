@@ -1,17 +1,9 @@
 package duke.task;
 
-/**
- * Represents a task with a description and completion status.
- */
-public class Task {
+public abstract class Task {
     protected String description;
     protected boolean isDone;
 
-    /**
-     * Constructs a Task with the specified description.
-     *
-     * @param description The description of the task
-     */
     public Task(String description) {
         assert description != null : "Task description should not be null";
         this.description = description;
@@ -76,4 +68,6 @@ public class Task {
     public String toString() {
         return getTypeIcon() + getStatusIcon() + " " + description;
     }
+
+    public abstract Task copy();
 }

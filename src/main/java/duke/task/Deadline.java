@@ -73,4 +73,13 @@ public class Deadline extends Task {
     public String toString() {
         return getTypeIcon() + getStatusIcon() + " " + description + " (by: " + getByString() + ")";
     }
+
+    @Override
+    public Task copy() {
+        Deadline copied = new Deadline(this.description, this.by);
+        if (this.isDone) {
+            copied.markDone();
+        }
+        return copied;
+    }
 }
