@@ -38,8 +38,9 @@ public class Parser {
                 return parseEventCommand(fullCommand);
             case "find":
                 return parseFindCommand(fullCommand);
+            case "undo":
+                return new UndoCommand();
             default:
-                // If no valid command is recognized, treat it as a todo
                 return new AddCommand(new ToDo(fullCommand));
         }
     }

@@ -39,6 +39,9 @@ public class Evan {
     public String getResponse(String input) {
         try {
             Command command = Parser.parse(input);
+            if (command.isUndoable()) {
+                tasks.saveState();
+            }
             return command.execute(tasks, ui, storage);
         } catch (DukeException e) {
             return e.getMessage();
@@ -56,6 +59,9 @@ public class Evan {
                 String fullCommand = ui.readCommand();
                 ui.showLine();
                 Command command = Parser.parse(fullCommand);
+                if (command.isUndoable()) {
+                    tasks.saveState();
+                }
                 command.execute(tasks, ui, storage);
                 isExit = command.isExit();
             } catch (DukeException e) {

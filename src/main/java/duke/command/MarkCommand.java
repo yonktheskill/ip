@@ -36,4 +36,9 @@ public class MarkCommand extends Command {
         storage.save(tasks.getTasks());
         return "Nice! I've marked this task as done:\n  " + task;
     }
+
+    @Override
+    public boolean isUndoable() {
+        return true;
+    }
 }
