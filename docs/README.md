@@ -7,7 +7,7 @@ Evan is a **personal task management chatbot** that helps you keep track of your
 ## Quick Start
 
 1. Ensure you have Java 11 or above installed
-2. Download the latest `ip.jar` from the releases page
+2. Download the latest `version from the releases page
 3. Double-click the jar file to start the application
 4. Type commands in the input box and press Enter to interact with Evan
 5. Refer to the Features below for details on each command
