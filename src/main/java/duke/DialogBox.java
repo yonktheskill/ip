@@ -29,7 +29,7 @@ public class DialogBox extends HBox {
         this.text = new Label(text);
         this.displayPicture = new ImageView(img);
 
-        // Style the text label
+        // Style the text label 
         this.text.setWrapText(true);
         this.text.getStyleClass().add("dialog-text");
 
