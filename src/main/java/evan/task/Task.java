@@ -1,5 +1,9 @@
 package evan.task;
 
+/**
+ * Represents an abstract task with a description and completion status.
+ * This is the base class for all task types.
+ */
 public abstract class Task {
     protected String description;
     protected boolean isDone;
@@ -69,5 +73,10 @@ public abstract class Task {
         return getTypeIcon() + getStatusIcon() + " " + description;
     }
 
+    /**
+     * Creates a copy of this task.
+     * 
+     * @return A new Task object with the same properties
+     */
     public abstract Task copy();
 }

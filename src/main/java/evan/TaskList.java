@@ -4,6 +4,9 @@ import evan.exception.DukeException;
 import evan.task.Task;
 import java.util.ArrayList;
 
+/**
+ * Manages a list of tasks and provides operations to add, delete, mark, and search tasks.
+ */
 public class TaskList {
     private ArrayList<Task> tasks;
     private TaskListHistory history;
@@ -124,10 +127,18 @@ public class TaskList {
         return matchingTasks;
     }
 
+    /**
+     * Saves the current state of the task list for undo functionality.
+     */
     public void saveState() {
         history.saveState(tasks);
     }
 
+    /**
+     * Restores the task list to the previous saved state.
+     * 
+     * @throws DukeException If there is nothing to undo
+     */
     public void undo() throws DukeException {
         if (!history.canUndo()) {
             throw new DukeException("Nothing to undo.");

@@ -4,7 +4,6 @@ import evan.task.Deadline;
 import evan.task.Event;
 import evan.task.Task;
 import evan.task.ToDo;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -18,17 +17,9 @@ import java.util.List;
 /**
  * Handles the loading and saving of tasks to a file.
  */
-/**
- * Handles the loading and saving of tasks to a file.
- */
 public class Storage {
     private String filePath;
 
-    /**
-     * Constructs a Storage object with the specified file path.
-     * 
-     * @param filePath The path to the file where tasks are stored
-     */
     /**
      * Constructs a Storage object with the specified file path.
      *
