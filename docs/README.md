@@ -228,7 +228,7 @@ bye
 **Expected Output:**
 
 ```
-Bye. Hope to see you again soon!
+Don't leave me ):
 ```
 
 ---
