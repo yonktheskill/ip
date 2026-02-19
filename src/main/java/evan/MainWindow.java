@@ -1,4 +1,4 @@
-package duke;
+package evan;
 
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;

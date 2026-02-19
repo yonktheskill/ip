@@ -1,7 +1,7 @@
-package duke;
+package evan;
 
-import duke.command.Command;
-import duke.exception.DukeException;
+import evan.command.Command;
+import evan.exception.DukeException;
 
 /**
  * Main class for the Evan chatbot application.

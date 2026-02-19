@@ -1,8 +1,8 @@
-package duke.command;
+package evan.command;
 
-import duke.Storage;
-import duke.TaskList;
-import duke.Ui;
+import evan.Storage;
+import evan.TaskList;
+import evan.Ui;
 
 /**
  * Command to exit the application.

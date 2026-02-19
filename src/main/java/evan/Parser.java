@@ -1,18 +1,18 @@
-package duke;
+package evan;
 
-import duke.command.AddCommand;
-import duke.command.Command;
-import duke.command.DeleteCommand;
-import duke.command.ExitCommand;
-import duke.command.FindCommand;
-import duke.command.ListCommand;
-import duke.command.MarkCommand;
-import duke.command.UndoCommand;
-import duke.command.UnmarkCommand;
-import duke.exception.DukeException;
-import duke.task.Deadline;
-import duke.task.Event;
-import duke.task.ToDo;
+import evan.command.AddCommand;
+import evan.command.Command;
+import evan.command.DeleteCommand;
+import evan.command.ExitCommand;
+import evan.command.FindCommand;
+import evan.command.ListCommand;
+import evan.command.MarkCommand;
+import evan.command.UndoCommand;
+import evan.command.UnmarkCommand;
+import evan.exception.DukeException;
+import evan.task.Deadline;
+import evan.task.Event;
+import evan.task.ToDo;
 
 /**
  * Deals with making sense of the user command.

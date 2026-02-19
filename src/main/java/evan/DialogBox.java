@@ -1,4 +1,4 @@
-package duke;
+package evan;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -34,9 +34,9 @@ public class DialogBox extends HBox {
         this.text.getStyleClass().add("dialog-text");
 
         // Style the image with circular clipping
-        displayPicture.setFitWidth(50.0);
-        displayPicture.setFitHeight(50.0);
-        Circle clip = new Circle(25, 25, 25);
+        displayPicture.setFitWidth(70.0);
+        displayPicture.setFitHeight(70.0);
+        Circle clip = new Circle(35, 35, 35);
         displayPicture.setClip(clip);
 
         // Configure the HBox

@@ -1,12 +1,13 @@
-package duke;
+package evan;
 
-import duke.command.AddCommand;
-import duke.command.DeleteCommand;
-import duke.command.ExitCommand;
-import duke.command.ListCommand;
-import duke.command.MarkCommand;
-import duke.command.UnmarkCommand;
-import duke.exception.DukeException;
+import evan.command.AddCommand;
+import evan.command.Command;
+import evan.command.DeleteCommand;
+import evan.command.ExitCommand;
+import evan.command.ListCommand;
+import evan.command.MarkCommand;
+import evan.command.UnmarkCommand;
+import evan.exception.DukeException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,4 +1,4 @@
-package duke.exception;
+package evan.exception;
 
 /**
  * Custom exception class for Duke application errors.

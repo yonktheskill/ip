@@ -9,8 +9,8 @@
 <?import javafx.scene.layout.HBox?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" 
-            prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" 
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="duke.MainWindow">
+            prefHeight="700.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" 
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="evan.MainWindow">
     <children>
         <!-- Chat Display Area -->
         <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" 

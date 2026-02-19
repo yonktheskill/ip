@@ -1,29 +1,29 @@
-package duke.command;
+package evan.command;
 
-import duke.Storage;
-import duke.TaskList;
-import duke.Ui;
-import duke.exception.DukeException;
-import duke.task.Task;
+import evan.Storage;
+import evan.TaskList;
+import evan.Ui;
+import evan.exception.DukeException;
+import evan.task.Task;
 
 /**
- * Command to mark a task as done.
+ * Command to delete a task.
  */
-public class MarkCommand extends Command {
+public class DeleteCommand extends Command {
     private int index;
 
     /**
-     * Constructs a MarkCommand to mark the task at the specified index.
+     * Constructs a DeleteCommand to delete the task at the specified index.
      *
-     * @param index The index of the task to mark as done
+     * @param index The index of the task to delete
      */
-    public MarkCommand(int index) {
+    public DeleteCommand(int index) {
         assert index >= -1 : "Index should be at least -1";
         this.index = index;
     }
 
     /**
-     * Executes the mark command by marking the task as done.
+     * Executes the delete command by removing the task from the task list.
      * 
      * @param tasks The task list
      * @param ui The user interface
@@ -34,9 +34,9 @@ public class MarkCommand extends Command {
     @Override
     public String execute(TaskList tasks, Ui ui, Storage storage) throws DukeException {
         assert tasks != null && storage != null : "Tasks and storage should not be null";
-        Task task = tasks.mark(index);
+        Task task = tasks.delete(index);
         storage.save(tasks.getTasks());
-        return "Nice! I've marked this task as done:\n  " + task;
+        return "Noted. I've removed this task:\n  " + task + "\nNow you have " + tasks.size() + " tasks in the list.";
     }
 
     @Override

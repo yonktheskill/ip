@@ -1,8 +1,8 @@
-package duke;
+package evan;
 
-import duke.exception.DukeException;
-import duke.task.Task;
-import duke.task.ToDo;
+import evan.exception.DukeException;
+import evan.task.Task;
+import evan.task.ToDo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

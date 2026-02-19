@@ -1,9 +1,9 @@
-package duke.command;
+package evan.command;
 
-import duke.Storage;
-import duke.TaskList;
-import duke.Ui;
-import duke.task.Task;
+import evan.Storage;
+import evan.TaskList;
+import evan.Ui;
+import evan.task.Task;
 
 /**
  * Command to add a task.
