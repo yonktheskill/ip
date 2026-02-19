@@ -1,6 +1,6 @@
 # Evan User Guide
 
-Evan is a **personal task management chatbot** that helps you keep track of your to-dos, deadlines, and events through a simple command-line interface. With Evan, you can easily add, manage, and search through your tasks!
+Evan is a **personal task management chatbot** that helps you keep track of your todos, deadlines, and events through a simple command-line interface. With Evan, you can easily add, manage, and search through your tasks!
 
 ![Evan Screenshot](Ui.png)
 
